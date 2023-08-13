@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 // Here's all the route
 const usersRoute = require('./routes/users');
+app.use(express.json());  // to read incoming data from users
 
 // Here's all the configuration
 dotenv.config();
@@ -21,5 +22,5 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/', usersRoute);
 
 app.listen('8000', () => {
-    console.log('Server is Running...')
+    console.log('Server is Running...');
 });
